@@ -12,6 +12,9 @@ interface sidebarProps {
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
+  gridPosition: {
+    position: 'absolute',
+  },
   sidebarAboutBox: {
     padding: theme.spacing(2),
     backgroundColor: theme.palette.grey[200],

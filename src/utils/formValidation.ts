@@ -2,13 +2,13 @@ import * as Yup from 'yup';
 
 // login form validation
 export const loginValidationSchema = Yup.object({
-  email: Yup.string().email('Enter a valid email').required('Email is Required'),
-  password: Yup.string()
-    .required('Password is required')
-    .matches(
-      /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
-      'Password must contain at least 8 characters, one uppercase, one number and one special case character',
-    ),
+  // email: Yup.string().email('Enter a valid email').required('Email is Required'),
+  email: Yup.string().required('Email is Required'),
+  password: Yup.string().required('Password is required'),
+  // .matches(
+  //   /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
+  //   'Password must contain at least 8 characters, one uppercase, one number and one special case character',
+  // ),
 });
 
 // signup form validation

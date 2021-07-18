@@ -8,6 +8,15 @@ interface loginProps {
   password: string;
 }
 
+const initialState: IuserState = {
+  userLoggedIn: null,
+  isUserLoggedIn: false,
+  user: [],
+  status: 'idle',
+  token: null,
+  error: null,
+};
+
 export const login = createAsyncThunk(
   'user/login',
   async ({ email, password }: loginProps) => {
@@ -30,15 +39,6 @@ const setupAuthHeaderForServiceCalls = (token: string | null) => {
     return (axios.defaults.headers.common['Authorization'] = token);
   }
   delete axios.defaults.headers.common['Authorization'];
-};
-
-const initialState: IuserState = {
-  userLoggedIn: null,
-  isUserLoggedIn: false,
-  user: [],
-  status: 'idle',
-  token: null,
-  error: null,
 };
 
 export const usersSlice = createSlice({

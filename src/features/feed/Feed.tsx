@@ -8,19 +8,20 @@ import Container from '@material-ui/core/Container';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
-import { ProfileBar } from './ProfileBar';
-import { Post } from './Post';
+import { ProfileBar } from '../profile/ProfileBar';
+// import { Post } from './Post';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   addNewPost,
   fetchTimelinePost,
-  fetchUserFriends,
-  fetchUserPost,
-  likesUpdate,
+  // fetchUserFriends,
+  // fetchUserPost,
+  // likesUpdate,
 } from './feedSlice';
 import { RootState } from '../../app/store';
 import { Avatar, Box, Button, Link } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
+import { Share } from './Share';
 
 const useStyles = makeStyles((theme: Theme) => ({
   mainGrid: {
@@ -36,21 +37,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: theme.spacing(1),
   },
 }));
-
-const sections = [
-  { title: 'Technology', url: '#' },
-  { title: 'Design', url: '#' },
-  { title: 'Culture', url: '#' },
-  { title: 'Business', url: '#' },
-  { title: 'Politics', url: '#' },
-  { title: 'Opinion', url: '#' },
-  { title: 'Science', url: '#' },
-  { title: 'Health', url: '#' },
-  { title: 'Style', url: '#' },
-  { title: 'Travel', url: '#' },
-];
-
-const posts = ['cool', 'cool', 'cool'];
 
 const sidebar = {
   title: 'About',
@@ -131,10 +117,10 @@ export const Feed = () => {
     setPostContent('');
   };
 
-  const handleLikes = (postId: string) => {
-    // console.log(postId);
-    dispatch(likesUpdate({ postId, userId: user?.user[0]?._id }));
-  };
+  // const handleLikes = (postId: string) => {
+  //   // console.log(postId);
+  //   dispatch(likesUpdate({ postId, userId: user?.user[0]?._id }));
+  // };
 
   useEffect(() => {
     if (user.userLoggedIn !== null) {
@@ -156,20 +142,19 @@ export const Feed = () => {
     <>
       <CssBaseline />
       <Container maxWidth="lg">
-        {/* <Header title="Blog" sections={sections} /> */}
         <Grid container spacing={5} className={classes.mainGrid}>
-          {/* <main title="From the firehose" posts={posts} /> */}
-          {/* <Post /> */}
           <div
             style={{
               flexGrow: 2,
               display: 'flex',
               backgroundColor: 'lightblue',
               padding: '1rem',
+              height: '100vh',
+              overflowY: 'auto',
             }}>
-            {' '}
             <div>
-              {/* <Box display="flex" flexDirection="column" > */}
+              <Share />
+              <main>Cool Post Title</main>
               <div
                 style={{
                   display: 'flex',
@@ -191,7 +176,6 @@ export const Feed = () => {
                   onChange={handleNewPost}
                 />
               </div>
-
               <Box display="flex">
                 <Button
                   variant="contained"
@@ -219,9 +203,6 @@ export const Feed = () => {
                       flexDirection="column"
                       justifyContent="space-between"
                       key={post._id}>
-                      {/* <h2>{` Name : ${
-                        feed?.friends && getUserNameFromId(post?.user)
-                      }`}</h2> */}
                       <p>{post?.desc}</p>
                       {post && (
                         <Button
@@ -235,10 +216,10 @@ export const Feed = () => {
                     </Box>
                   </>
                 ))}
-              {/* </Box> */}
+              <div>fdsfsdf</div>
             </div>
           </div>
-          <ProfileBar title={sidebar.title} description={sidebar.description} />
+          <ProfileBar title={'Cool Profile Title'} description={sidebar.description} />
         </Grid>
       </Container>
     </>

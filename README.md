@@ -1,2 +1,3 @@
-# hey-there-client-fresh
-A Simple Social Media App made with React, ReduxToolkit, Typescript and vite 
+# Run Yarn
+
+[hey-There-Express-Server](https://github.com/appsplash99/hey-there-server/tree/dev)

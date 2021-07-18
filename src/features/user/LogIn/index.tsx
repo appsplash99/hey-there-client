@@ -43,7 +43,7 @@ export const LogIn = () => {
     },
     validationSchema: loginValidationSchema,
     onSubmit: async (values) => {
-      // alert(JSON.stringify(values, null, 2));
+      alert(JSON.stringify(values, null, 2));
       try {
         // TODO: try alternative for any
         const response: any = await dispatch(login(values));

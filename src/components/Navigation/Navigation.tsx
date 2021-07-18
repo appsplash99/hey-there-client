@@ -6,9 +6,9 @@ import { RenderDesktopMenu } from './RenderDesktopMenu';
 import { RenderMobileMenu } from './RenderMobileMenu';
 import clsx from 'clsx';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { Container } from '@material-ui/core';
+// import { Container } from '@material-ui/core';
 
-export const Layout: React.FC = ({ children }) => {
+export const Navigation: React.FC = ({ children }) => {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
